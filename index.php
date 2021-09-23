@@ -84,10 +84,10 @@ if (isset($sub)) {
         <br>
         <br>
         <form action="index.php" method="post">
+
 Peníze: <input type="number" name="amount" id="amount"> <br>
      <br>
         <br>
-        
         <input type="submit" value="odeslat" name="odeslat">
     </form>
 <?php
