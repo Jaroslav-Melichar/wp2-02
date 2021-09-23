@@ -2,6 +2,7 @@
 $amount = filter_input(INPUT_POST, 'amount');
 $final = 0 ;
 define('EUR_CZK', 25);
+define('USD_CZK', 22);
 $sub = filter_input(INPUT_POST, 'odeslat');
 $switch =  filter_input(INPUT_POST, 'switch');
 $curencyfrom;
@@ -33,7 +34,17 @@ if (isset($sub)) {
         $curencyfrom = " EUR " ;
         $curencyto = " CZK " ;
         break;
-                    }
+    case 'czk_usd': 
+        $final = $amount * EUR_CZK ;
+        $curencyfrom = " CZK " ;
+        $curencyto = " USD " ;
+        break;   
+    case 'usd_czk': 
+        $final = $amount * EUR_CZK ;
+        $curencyfrom = " USD " ;
+        $curencyto = " CZK " ;
+        break;          
+                  }
 
         $all =$text . $amount . $curencyfrom . " = " . $final . $curencyto ?>
 <?= $all ?>
