@@ -11,7 +11,7 @@ define('GBP_EUR', 29);
 define('RUB_GBP', 25);
 define('USD_GBP', 21);
 define('USD_RUB', 0.3);
-//define('RUB_CZK', 0,30);                Prozatím vypnuto (musím změnit definici)
+
 $sub = filter_input(INPUT_POST, 'odeslat');
 $switch =  filter_input(INPUT_POST, 'switch');
 $curencyfrom;
@@ -29,6 +29,7 @@ $text = "Převod je hotov : " ;
 <body>
 <h1>Směnárna</h1>
 <br>
+
 <?php
 if (isset($sub)) {
     switch ($switch) {
@@ -134,46 +135,42 @@ if (isset($sub)) {
             break;   
                          }
 
-        $all =$text . $amount . $curencyfrom . " = " . $final . $curencyto ?>
-        
+?>
+
+
 <?= $all ?>
 <?php
 } else { ?>
     <form action="index.php" method="post">
 Peníze: <input type="number" name="amount" id="amount"> <br>
-     <br>
-     Koruny na Eura: <input type="radio" name="switch" value="czk_eur" id="switch"><br>
-    Eura na Koruny: <input type="radio" name="switch" value="eur_czk" id="switch"><br>
-        <br>
-    Koruny na Dolary: <input type="radio" name="switch" value="czk_usd" id="switch"><br>
-    Dolary na Koruny: <input type="radio" name="switch" value="usd_czk" id="switch"><br>
-        <br>
-    Koruny na Rubly: <input type="radio" name="switch" value="czk_rub" id="switch"><br>
-    Rubly na Koruny: <input type="radio" name="switch" value="rub_czk" id="switch"><br>
-       <br>
-    Koruny na Libry: <input type="radio" name="switch" value="czk_gbp" id="switch"><br>
-    Libry na Koruny: <input type="radio" name="switch" value="gbp_czk" id="switch"><br>     
-        <br>
-    Libry na Eura: <input type="radio" name="switch" value="gbp_eur" id="switch"><br>
-    Eura na Libry: <input type="radio" name="switch" value="eur_gbp" id="switch"><br>
+ <br>
 
-    <br>        
-    Libry na Rubly <input type="radio" name="switch" value="gbp_rub" id="switch"><br>
-    Rubly na Libry: <input type="radio" name="switch" value="rub_gbp" id="switch"><br>
-
-    <br>
-    Dolary na Eura: <input type="radio" name="switch" value="usd_eur" id="switch"><br>
-    Eura na Dolary: <input type="radio" name="switch" value="eur_usd" id="switch"><br>
-   <br>
-    Libry na Dolary: <input type="radio" name="switch" value="gbp_usd" id="switch"><br>
-    Dolary na Libry: <input type="radio" name="switch" value="usd_gbp" id="switch"><br>
-   <br>
-    Dolary na Rubly: <input type="radio" name="switch" value="usd_rub" id="switch"><br>
-    Rubly na Dolary: <input type="radio" name="switch" value="rub_usd" id="switch"><br>
-   <br>
-    Rubly na Eura: <input type="radio" name="switch" value="eur_rub" id="switch"><br>
-    Eura na Rubly: <input type="radio" name="switch" value="rub_eur" id="switch"><br>
-        <input type="submit" value="odeslat" name="odeslat">
+ <select name="amount" id="amount">
+    <option value="">--Vyberte možnost--</option>
+    <option value="czk_eur">Z CZK DO EUR</option>
+    <option value="czk_usd">Z CZK DO USD</option>
+    <option value="czk_gbp">Z CZK DO GBP</option>
+    <option value="czk_rub">Z CZK DO RUB</option>
+    <option value="eur_czk">Z EUR DO CZK</option>
+    <option value="eur_usd">Z EUR DO USD</option>
+    <option value="eur_rub">Z EUR DO RUB</option>
+    <option value="eur_gbp">Z EUR DO GBP</option>
+    <option value="usd_czk">Z USD DO CZK</option>
+    <option value="usd_eur">Z USD DO EUR</option>
+    <option value="usd_rub">Z USD DO RUB</option>
+    <option value="usd_gbp">Z USD DO GBP</option>
+    <option value="rub_czk">Z RUB DO CZK</option>
+    <option value="rub_eur">Z RUB DO EUR</option>
+    <option value="rub_usd">Z RUB DO USD</option>
+    <option value="rub_gbp">Z RUB DO GBP</option>
+    <option value="gbp_czk">Z GBP DO CZK</option>
+    <option value="gbp_eur">Z GBP DO EUR</option>
+    <option value="gbp_usd">Z GBP DO USD</option>
+    <option value="gbp_rub">Z GBP DO RUB</option>
+</select>
+<br>
+<br>
+        <input type="submit" value="Nechat převést" name="odeslat">
     </form>
 <?php
 } ?>
