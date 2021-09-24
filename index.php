@@ -12,6 +12,7 @@ define('RUB_GBP', 25);
 define('USD_GBP', 21);
 define('USD_RUB', 0.3);
 
+
 $sub = filter_input(INPUT_POST, 'odeslat');
 $switch =  filter_input(INPUT_POST, 'switch');
 $curencyfrom;
@@ -24,7 +25,7 @@ $text = "Převod je hotov : " ;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Chci spát</title>
 </head>
 <body>
 <h1>Směnárna</h1>
@@ -136,16 +137,13 @@ if (isset($sub)) {
                          }
 
 ?>
-
-
 <?= $all ?>
 <?php
 } else { ?>
     <form action="index.php" method="post">
-Peníze: <input type="number" name="amount" id="amount"> <br>
- <br>
+Peníze: <input type="number" name="amount" id="amount">
 
- <select name="amount" id="amount">
+ <select name="switch" id="switch">
     <option value="">--Vyberte možnost--</option>
     <option value="czk_eur">Z CZK DO EUR</option>
     <option value="czk_usd">Z CZK DO USD</option>
@@ -170,7 +168,7 @@ Peníze: <input type="number" name="amount" id="amount"> <br>
 </select>
 <br>
 <br>
-        <input type="submit" value="Nechat převést" name="odeslat">
+        <input type="submit" value="submit" name="odeslat">
     </form>
 <?php
 } ?>
