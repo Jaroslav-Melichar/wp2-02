@@ -138,7 +138,7 @@ if (isset($sub)) {
 
 ?>
 <?= $all ?>
-<?php
+<?php           
 } else { ?>
     <form action="index.php" method="post">
 Peníze: <input type="number" name="amount" id="amount">
